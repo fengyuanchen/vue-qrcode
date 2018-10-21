@@ -1,0 +1,14 @@
+{
+  "root": true,
+  "extends": "airbnb-base",
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "no-new": "off",
+    "no-param-reassign": "off",
+    "valid-jsdoc": ["error", {
+      "requireReturn": false
+    }]
+  }
+}
