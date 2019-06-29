@@ -1,14 +1,12 @@
 /*!
- * vue-qrcode v1.0.0
+ * vue-qrcode v1.0.1
  * https://fengyuanchen.github.io/vue-qrcode
  *
  * Copyright 2018-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2018-10-21T13:04:02.951Z
+ * Date: 2019-06-29T08:20:19.827Z
  */
-
-var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
 function commonjsRequire () {
 	throw new Error('Dynamic requires are not currently supported by rollup-plugin-commonjs');
@@ -20,6 +18,15 @@ function createCommonjsModule(fn, module) {
 
 var qrcode = createCommonjsModule(function (module, exports) {
 (function(f){{module.exports=f();}})(function(){return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof commonjsRequire&&commonjsRequire;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t);}return n[i].exports}for(var u="function"==typeof commonjsRequire&&commonjsRequire,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+// can-promise has a crash in some versions of react native that dont have
+// standard global objects
+// https://github.com/soldair/node-qrcode/issues/157
+
+module.exports = function () {
+  return typeof Promise === 'function' && Promise.prototype && Promise.prototype.then
+};
+
+},{}],2:[function(require,module,exports){
 /**
  * Alignment pattern are fixed reference pattern in defined positions
  * in a matrix symbology, which enables the decode software to re-synchronise
@@ -104,7 +111,7 @@ exports.getPositions = function getPositions (version) {
   return coords
 };
 
-},{"./utils":20}],2:[function(require,module,exports){
+},{"./utils":21}],3:[function(require,module,exports){
 var Mode = require('./mode');
 
 /**
@@ -165,7 +172,7 @@ AlphanumericData.prototype.write = function write (bitBuffer) {
 
 module.exports = AlphanumericData;
 
-},{"./mode":13}],3:[function(require,module,exports){
+},{"./mode":14}],4:[function(require,module,exports){
 function BitBuffer () {
   this.buffer = [];
   this.length = 0;
@@ -204,7 +211,7 @@ BitBuffer.prototype = {
 
 module.exports = BitBuffer;
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 var Buffer = require('../utils/buffer');
 
 /**
@@ -275,7 +282,7 @@ BitMatrix.prototype.isReserved = function (row, col) {
 
 module.exports = BitMatrix;
 
-},{"../utils/buffer":27}],5:[function(require,module,exports){
+},{"../utils/buffer":28}],6:[function(require,module,exports){
 var Buffer = require('../utils/buffer');
 var Mode = require('./mode');
 
@@ -304,7 +311,7 @@ ByteData.prototype.write = function (bitBuffer) {
 
 module.exports = ByteData;
 
-},{"../utils/buffer":27,"./mode":13}],6:[function(require,module,exports){
+},{"../utils/buffer":28,"./mode":14}],7:[function(require,module,exports){
 var ECLevel = require('./error-correction-level');
 
 var EC_BLOCKS_TABLE = [
@@ -441,7 +448,7 @@ exports.getTotalCodewordsCount = function getTotalCodewordsCount (version, error
   }
 };
 
-},{"./error-correction-level":7}],7:[function(require,module,exports){
+},{"./error-correction-level":8}],8:[function(require,module,exports){
 exports.L = { bit: 1 };
 exports.M = { bit: 0 };
 exports.Q = { bit: 3 };
@@ -493,7 +500,7 @@ exports.from = function from (value, defaultValue) {
   }
 };
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 var getSymbolSize = require('./utils').getSymbolSize;
 var FINDER_PATTERN_SIZE = 7;
 
@@ -517,7 +524,7 @@ exports.getPositions = function getPositions (version) {
   ]
 };
 
-},{"./utils":20}],9:[function(require,module,exports){
+},{"./utils":21}],10:[function(require,module,exports){
 var Utils = require('./utils');
 
 var G15 = (1 << 10) | (1 << 8) | (1 << 5) | (1 << 4) | (1 << 2) | (1 << 1) | (1 << 0);
@@ -548,21 +555,17 @@ exports.getEncodedBits = function getEncodedBits (errorCorrectionLevel, mask) {
   return ((data << 10) | d) ^ G15_MASK
 };
 
-},{"./utils":20}],10:[function(require,module,exports){
+},{"./utils":21}],11:[function(require,module,exports){
 var Buffer = require('../utils/buffer');
 
-var EXP_TABLE = new Buffer(512);
-var LOG_TABLE = new Buffer(256)
-
-/**
- * Precompute the log and anti-log tables for faster computation later
- *
- * For each possible value in the galois field 2^8, we will pre-compute
- * the logarithm and anti-logarithm (exponential) of this value
- *
- * ref {@link https://en.wikiversity.org/wiki/Reed%E2%80%93Solomon_codes_for_coders#Introduction_to_mathematical_fields}
- */
-;(function initTables () {
+if(Buffer.alloc) { 
+  var EXP_TABLE = Buffer.alloc(512);
+  var LOG_TABLE = Buffer.alloc(256);
+} else {
+  var EXP_TABLE = new Buffer(512);
+  var LOG_TABLE = new Buffer(256);
+}
+(function initTables () {
   var x = 1;
   for (var i = 0; i < 255; i++) {
     EXP_TABLE[i] = x;
@@ -622,7 +625,7 @@ exports.mul = function mul (x, y) {
   return EXP_TABLE[LOG_TABLE[x] + LOG_TABLE[y]]
 };
 
-},{"../utils/buffer":27}],11:[function(require,module,exports){
+},{"../utils/buffer":28}],12:[function(require,module,exports){
 var Mode = require('./mode');
 var Utils = require('./utils');
 
@@ -678,7 +681,7 @@ KanjiData.prototype.write = function (bitBuffer) {
 
 module.exports = KanjiData;
 
-},{"./mode":13,"./utils":20}],12:[function(require,module,exports){
+},{"./mode":14,"./utils":21}],13:[function(require,module,exports){
 /**
  * Data mask pattern reference
  * @type {Object}
@@ -914,7 +917,7 @@ exports.getBestMask = function getBestMask (data, setupFormatFunc) {
   return bestPattern
 };
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 var VersionCheck = require('./version-check');
 var Regex = require('./regex');
 
@@ -1083,7 +1086,7 @@ exports.from = function from (value, defaultValue) {
   }
 };
 
-},{"./regex":18,"./version-check":21}],14:[function(require,module,exports){
+},{"./regex":19,"./version-check":22}],15:[function(require,module,exports){
 var Mode = require('./mode');
 
 function NumericData (data) {
@@ -1128,7 +1131,7 @@ NumericData.prototype.write = function write (bitBuffer) {
 
 module.exports = NumericData;
 
-},{"./mode":13}],15:[function(require,module,exports){
+},{"./mode":14}],16:[function(require,module,exports){
 var Buffer = require('../utils/buffer');
 var GF = require('./galois-field');
 
@@ -1194,7 +1197,7 @@ exports.generateECPolynomial = function generateECPolynomial (degree) {
   return poly
 };
 
-},{"../utils/buffer":27,"./galois-field":10}],16:[function(require,module,exports){
+},{"../utils/buffer":28,"./galois-field":11}],17:[function(require,module,exports){
 var Buffer = require('../utils/buffer');
 var Utils = require('./utils');
 var ECLevel = require('./error-correction-level');
@@ -1695,7 +1698,7 @@ exports.create = function create (data, options) {
   return createSymbol(data, version, errorCorrectionLevel, mask)
 };
 
-},{"../utils/buffer":27,"./alignment-pattern":1,"./bit-buffer":3,"./bit-matrix":4,"./error-correction-code":6,"./error-correction-level":7,"./finder-pattern":8,"./format-info":9,"./mask-pattern":12,"./mode":13,"./reed-solomon-encoder":17,"./segments":19,"./utils":20,"./version":22,"isarray":30}],17:[function(require,module,exports){
+},{"../utils/buffer":28,"./alignment-pattern":2,"./bit-buffer":4,"./bit-matrix":5,"./error-correction-code":7,"./error-correction-level":8,"./finder-pattern":9,"./format-info":10,"./mask-pattern":13,"./mode":14,"./reed-solomon-encoder":18,"./segments":20,"./utils":21,"./version":23,"isarray":30}],18:[function(require,module,exports){
 var Buffer = require('../utils/buffer');
 var Polynomial = require('./polynomial');
 
@@ -1756,7 +1759,7 @@ ReedSolomonEncoder.prototype.encode = function encode (data) {
 
 module.exports = ReedSolomonEncoder;
 
-},{"../utils/buffer":27,"./polynomial":15}],18:[function(require,module,exports){
+},{"../utils/buffer":28,"./polynomial":16}],19:[function(require,module,exports){
 var numeric = '[0-9]+';
 var alphanumeric = '[A-Z $%*+\\-./:]+';
 var kanji = '(?:[u3000-u303F]|[u3040-u309F]|[u30A0-u30FF]|' +
@@ -1789,7 +1792,7 @@ exports.testAlphanumeric = function testAlphanumeric (str) {
   return TEST_ALPHANUMERIC.test(str)
 };
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 var Mode = require('./mode');
 var NumericData = require('./numeric-data');
 var AlphanumericData = require('./alphanumeric-data');
@@ -2121,7 +2124,7 @@ exports.rawSplit = function rawSplit (data) {
   )
 };
 
-},{"./alphanumeric-data":2,"./byte-data":5,"./kanji-data":11,"./mode":13,"./numeric-data":14,"./regex":18,"./utils":20,"dijkstrajs":29}],20:[function(require,module,exports){
+},{"./alphanumeric-data":3,"./byte-data":6,"./kanji-data":12,"./mode":14,"./numeric-data":15,"./regex":19,"./utils":21,"dijkstrajs":29}],21:[function(require,module,exports){
 var toSJISFunction;
 var CODEWORDS_COUNT = [
   0, // Not used
@@ -2186,7 +2189,7 @@ exports.toSJIS = function toSJIS (kanji) {
   return toSJISFunction(kanji)
 };
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 /**
  * Check if QR Code version is valid
  *
@@ -2197,7 +2200,7 @@ exports.isValid = function isValid (version) {
   return !isNaN(version) && version >= 1 && version <= 40
 };
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 var Utils = require('./utils');
 var ECCode = require('./error-correction-code');
 var ECLevel = require('./error-correction-level');
@@ -2363,8 +2366,10 @@ exports.getEncodedBits = function getEncodedBits (version) {
   return (version << 12) | d
 };
 
-},{"./error-correction-code":6,"./error-correction-level":7,"./mode":13,"./utils":20,"./version-check":21,"isarray":30}],23:[function(require,module,exports){
-var canPromise = require('can-promise');
+},{"./error-correction-code":7,"./error-correction-level":8,"./mode":14,"./utils":21,"./version-check":22,"isarray":30}],24:[function(require,module,exports){
+
+var canPromise = require('./can-promise');
+
 var QRCode = require('./core/qrcode');
 var CanvasRenderer = require('./renderer/canvas');
 var SvgRenderer = require('./renderer/svg-tag.js');
@@ -2439,7 +2444,7 @@ exports.toString = renderCanvas.bind(null, function (data, _, opts) {
   return SvgRenderer.render(data, opts)
 });
 
-},{"./core/qrcode":16,"./renderer/canvas":24,"./renderer/svg-tag.js":25,"can-promise":28}],24:[function(require,module,exports){
+},{"./can-promise":1,"./core/qrcode":17,"./renderer/canvas":25,"./renderer/svg-tag.js":26}],25:[function(require,module,exports){
 var Utils = require('./utils');
 
 function clearCanvas (ctx, canvas, size) {
@@ -2504,7 +2509,7 @@ exports.renderToDataURL = function renderToDataURL (qrData, canvas, options) {
   return canvasEl.toDataURL(type, rendererOpts.quality)
 };
 
-},{"./utils":26}],25:[function(require,module,exports){
+},{"./utils":27}],26:[function(require,module,exports){
 var Utils = require('./utils');
 
 function getColorAttrib (color, attrib) {
@@ -2587,7 +2592,7 @@ exports.render = function render (qrData, options, cb) {
   return svgTag
 };
 
-},{"./utils":26}],26:[function(require,module,exports){
+},{"./utils":27}],27:[function(require,module,exports){
 function hex2rgba (hex) {
   if (typeof hex !== 'string') {
     throw new Error('Color should be defined as hex string')
@@ -2682,7 +2687,7 @@ exports.qrToImageData = function qrToImageData (imgData, qr, opts) {
   }
 };
 
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 
 var isArray = require('isarray');
 
@@ -2978,7 +2983,7 @@ function from (that, value, offset, length) {
   }
 
   if (typeof value === 'string') {
-    return fromString(that, value, offset)
+    return fromString(that, value)
   }
 
   return fromObject(that, value)
@@ -3188,18 +3193,7 @@ Buffer.isBuffer = function isBuffer (b) {
 
 module.exports = Buffer;
 
-},{"isarray":30}],28:[function(require,module,exports){
-
-var G = require('window-or-global');
-
-module.exports = function() {
-  return (
-    typeof G.Promise === 'function' &&
-    typeof G.Promise.prototype.then === 'function'
-  )
-};
-
-},{"window-or-global":31}],29:[function(require,module,exports){
+},{"isarray":30}],29:[function(require,module,exports){
 
 /******************************************************************************
  * Created 2008-08-19.
@@ -3372,15 +3366,7 @@ module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-},{}],31:[function(require,module,exports){
-(function (global){
-module.exports = (typeof self === 'object' && self.self === self && self) ||
-  (typeof global === 'object' && global.global === global && global) ||
-  this;
-
-}).call(this,typeof commonjsGlobal !== "undefined" ? commonjsGlobal : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {});
-
-},{}]},{},[23])(23)
+},{}]},{},[24])(24)
 });
 
 
@@ -3389,6 +3375,11 @@ module.exports = (typeof self === 'object' && self.self === self && self) ||
 var index = {
   name: 'qrcode',
   props: {
+    /**
+     * The value of the QR code.
+     */
+    value: null,
+
     /**
      * The options for the QR code generator.
      * {@link https://github.com/soldair/node-qrcode#qr-code-options}
@@ -3401,12 +3392,7 @@ var index = {
     tag: {
       type: String,
       default: 'canvas'
-    },
-
-    /**
-     * The value of the QR code.
-     */
-    value: null
+    }
   },
   render: function render(createElement) {
     return createElement(this.tag, this.$slots.default);
@@ -3415,6 +3401,10 @@ var index = {
     $props: {
       deep: true,
       immediate: true,
+
+      /**
+       * Update the QR code when props changed.
+       */
       handler: function handler() {
         if (this.$el) {
           this.generate();
