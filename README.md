@@ -1,6 +1,6 @@
 # vue-qrcode
 
-[![Build Status](https://travis-ci.org/fengyuanchen/vue-qrcode.svg)](https://travis-ci.org/fengyuanchen/vue-qrcode) [![Coverage Status](https://img.shields.io/codecov/c/github/fengyuanchen/vue-qrcode.svg)](https://codecov.io/gh/fengyuanchen/vue-qrcode) [![Downloads](https://img.shields.io/npm/dm/@chenfengyuan/vue-qrcode.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-qrcode) [![Version](https://img.shields.io/npm/v/@chenfengyuan/vue-qrcode.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-qrcode)
+[![Build Status](https://img.shields.io/travis/fengyuanchen/vue-qrcode.svg)](https://travis-ci.org/fengyuanchen/vue-qrcode) [![Coverage Status](https://img.shields.io/codecov/c/github/fengyuanchen/vue-qrcode.svg)](https://codecov.io/gh/fengyuanchen/vue-qrcode) [![Downloads](https://img.shields.io/npm/dm/@chenfengyuan/vue-qrcode.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-qrcode) [![Version](https://img.shields.io/npm/v/@chenfengyuan/vue-qrcode.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-qrcode) [![Dependencies](https://img.shields.io/david/fengyuanchen/vue-qrcode.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-qrcode)
 
 > QR code component for [Vue.js](https://vuejs.org), bases on [node-qrcode](https://github.com/soldair/node-qrcode).
 
