@@ -97,32 +97,6 @@ describe('props', () => {
       }).$mount();
     });
 
-    it('should throw error when the value is empty', () => {
-      try {
-        new Vue({
-          template: '<qrcode ref="qrcode" value=""></qrcode>',
-        }).$mount();
-      } catch (error) {
-        expect(error).to.be.an('error');
-      }
-
-      try {
-        new Vue({
-          template: '<qrcode ref="qrcode" tag="img" value=""></qrcode>',
-        }).$mount();
-      } catch (error) {
-        expect(error).to.be.an('error');
-      }
-
-      try {
-        new Vue({
-          template: '<qrcode ref="qrcode" tag="div" value=""></qrcode>',
-        }).$mount();
-      } catch (error) {
-        expect(error).to.be.an('error');
-      }
-    });
-
     it('should match the given value', (done) => {
       new Vue({
         template: '<qrcode ref="qrcode" value="1"></qrcode>',
