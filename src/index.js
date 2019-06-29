@@ -54,12 +54,14 @@ export default {
 
       if (tag === 'canvas') {
         QRCode.toCanvas(this.$el, value, options, (error) => {
+          /* istanbul ignore if */
           if (error) {
             throw error;
           }
         });
       } else if (tag === 'img') {
         QRCode.toDataURL(value, options, (error, url) => {
+          /* istanbul ignore if */
           if (error) {
             throw error;
           }
@@ -68,6 +70,7 @@ export default {
         });
       } else {
         QRCode.toString(value, options, (error, string) => {
+          /* istanbul ignore if */
           if (error) {
             throw error;
           }
