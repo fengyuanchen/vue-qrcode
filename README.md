@@ -2,7 +2,7 @@
 
 [![Build Status](https://img.shields.io/travis/fengyuanchen/vue-qrcode.svg)](https://travis-ci.org/fengyuanchen/vue-qrcode) [![Coverage Status](https://img.shields.io/codecov/c/github/fengyuanchen/vue-qrcode.svg)](https://codecov.io/gh/fengyuanchen/vue-qrcode) [![Downloads](https://img.shields.io/npm/dm/@chenfengyuan/vue-qrcode.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-qrcode) [![Version](https://img.shields.io/npm/v/@chenfengyuan/vue-qrcode.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-qrcode) [![Dependencies](https://img.shields.io/david/fengyuanchen/vue-qrcode.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-qrcode)
 
-> QR code component for [Vue.js](https://vuejs.org), bases on [node-qrcode](https://github.com/soldair/node-qrcode).
+> QR code component for [Vue.js](https://vuejs.org/), bases on [node-qrcode](https://github.com/soldair/node-qrcode).
 
 - [Website](https://fengyuanchen.github.io/vue-qrcode)
 
@@ -91,10 +91,10 @@ The tag name of the component's root element.
 
 ## Versioning
 
-Maintained under the [Semantic Versioning guidelines](https://semver.org).
+Maintained under the [Semantic Versioning guidelines](https://semver.org/).
 
 ## License
 
-[MIT](https://opensource.org/licenses/MIT) © [Chen Fengyuan](https://chenfengyuan.com)
+[MIT](https://opensource.org/licenses/MIT) © [Chen Fengyuan](https://chenfengyuan.com/)
 
 [⬆ back to top](#table-of-contents)
