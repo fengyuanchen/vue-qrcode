@@ -1,12 +1,12 @@
 const puppeteer = require('puppeteer');
-const rollupConfig = require('../rollup.config');
+const rollupConfig = require('./rollup.config');
 
 process.env.CHROME_BIN = puppeteer.executablePath();
+process.env.NODE_ENV = 'test';
 
 module.exports = (config) => {
   config.set({
     autoWatch: false,
-    basePath: '..',
     browsers: ['ChromeHeadless'],
     coverageIstanbulReporter: {
       reports: ['html', 'lcovonly', 'text-summary'],
