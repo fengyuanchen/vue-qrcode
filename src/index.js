@@ -51,7 +51,9 @@ export default {
     generate() {
       const { options, tag } = this;
       const value = String(this.value);
-
+      if (typeof value === 'undefined' || value === '') {
+        return;
+      }
       if (tag === 'canvas') {
         QRCode.toCanvas(this.$el, value, options, (error) => {
           /* istanbul ignore if */

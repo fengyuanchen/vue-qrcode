@@ -5,7 +5,7 @@
  * Copyright 2018-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2020-01-18T06:04:33.222Z
+ * Date: 2020-03-03T02:08:27.330Z
  */
 
 function commonjsRequire () {
@@ -5464,6 +5464,10 @@ var index = {
       var options = this.options,
           tag = this.tag;
       var value = String(this.value);
+
+      if (typeof value === 'undefined' || value === '') {
+        return;
+      }
 
       if (tag === 'canvas') {
         qrcode.toCanvas(this.$el, value, options, function (error) {
