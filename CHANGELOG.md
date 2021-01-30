@@ -1,13 +1,24 @@
-# Changelog
+# [2.0.0-alpha](https://github.com/fengyuanchen/vue-qrcode/compare/v1.0.2...v2.0.0-alpha) (2021-01-30)
 
-## 1.0.2 (Jan 18, 2020)
 
-- Upgrade the built-in [node-qrcode](https://github.com/soldair/node-qrcode) version from 1.3.3 to 1.4.4.
+* refactor!: upgrade to Vue 3 ([aad345d](https://github.com/fengyuanchen/vue-qrcode/commit/aad345da48e168bacb3848b07d0ab3fe0c09528a))
 
-## 1.0.1 (Jun 29, 2019)
 
-- Upgrade the built-in [node-qrcode](https://github.com/soldair/node-qrcode) version from 1.3.0 to 1.3.3.
+### BREAKING CHANGES
 
-## 1.0.0 (Oct 21, 2018)
+* drop support for Vue 2.
 
-- Supports 3 props (options): `value`, `options` and `tag`.
+
+
+## [1.0.2](https://github.com/fengyuanchen/vue-qrcode/compare/v1.0.1...v1.0.2) (2020-01-18)
+
+
+
+## [1.0.1](https://github.com/fengyuanchen/vue-qrcode/compare/v1.0.0...v1.0.1) (2019-06-29)
+
+
+
+# 1.0.0 (2018-10-21)
+
+
+

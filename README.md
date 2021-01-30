@@ -1,44 +1,36 @@
 # vue-qrcode
 
-[![Build Status](https://img.shields.io/travis/fengyuanchen/vue-qrcode.svg)](https://travis-ci.org/fengyuanchen/vue-qrcode) [![Coverage Status](https://img.shields.io/codecov/c/github/fengyuanchen/vue-qrcode.svg)](https://codecov.io/gh/fengyuanchen/vue-qrcode) [![Downloads](https://img.shields.io/npm/dm/@chenfengyuan/vue-qrcode.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-qrcode) [![Version](https://img.shields.io/npm/v/@chenfengyuan/vue-qrcode.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-qrcode) [![Dependencies](https://img.shields.io/david/fengyuanchen/vue-qrcode.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-qrcode)
+[![Build Status](https://img.shields.io/github/workflow/status/fengyuanchen/vue-qrcode/ci/main.svg)](https://github.com/fengyuanchen/vue-qrcode/actions) [![Coverage Status](https://img.shields.io/codecov/c/github/fengyuanchen/vue-qrcode.svg)](https://codecov.io/gh/fengyuanchen/vue-qrcode) [![Downloads](https://img.shields.io/npm/dm/@chenfengyuan/vue-qrcode.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-qrcode) [![Version](https://img.shields.io/npm/v/@chenfengyuan/vue-qrcode.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-qrcode) [![Gzip Size](https://img.shields.io/bundlephobia/minzip/@chenfengyuan/vue-qrcode.svg)](https://unpkg.com/@chenfengyuan/vue-qrcode/dist/vue-qrcode.js)
 
-> QR code component for [Vue.js](https://vuejs.org/), bases on [node-qrcode](https://github.com/soldair/node-qrcode).
+> QR code component for Vue 3, bases on [node-qrcode](https://github.com/soldair/node-qrcode).
 
-- [Website](https://fengyuanchen.github.io/vue-qrcode)
+- [Docs](src/README.md)
+- [Demo](https://fengyuanchen.github.io/vue-qrcode)
 
-## Table of contents
-
-- [Main](#main)
-- [Getting started](#getting-started)
-- [Props](#props)
-- [Browser support](#browser-support)
-- [Versioning](#versioning)
-- [License](#license)
-
-## Main
+## Main files
 
 ```text
 dist/
-├── vue-qrcode.js        (UMD)
-├── vue-qrcode.min.js    (UMD, compressed)
-├── vue-qrcode.common.js (CommonJS)
-└── vue-qrcode.esm.js    (ES Module)
+├── vue-qrcode.js         (UMD, default)
+├── vue-qrcode.min.js     (UMD, compressed)
+├── vue-qrcode.esm.js     (ECMAScript Module)
+└── vue-qrcode.esm.min.js (ECMAScript Module, compressed)
 ```
 
 ## Getting started
 
-### Install
+### Installation
 
 ```shell
-npm install @chenfengyuan/vue-qrcode vue
+npm install vue qrcode @chenfengyuan/vue-qrcode
 ```
 
 In browser:
 
 ```html
-<script src="/path/to/vue.js"></script>
+<script src="/path/to/vue.js"></script><!-- Vue.js is required -->
+<script src="/path/to/qrcode.js"></script><!-- qrocde is required -->
 <script src="/path/to/vue-qrcode.js"></script>
-<script>Vue.component(VueQrcode.name, VueQrcode);</script>
 ```
 
 ### Usage
@@ -47,47 +39,18 @@ In browser:
 import Vue from 'vue';
 import VueQrcode from '@chenfengyuan/vue-qrcode';
 
-Vue.component(VueQrcode.name, VueQrcode);
+const app = Vue.createApp({});
+
+app.component(VueQrcode.name, VueQrcode);
 ```
 
 ```html
-<qrcode value="Hello, World!" :options="{ width: 200 }"></qrcode>
+<vue-qrcode value="Hello, World!" :options="{ width: 200 }"></vue-qrcode>
 ```
-
-[⬆ back to top](#table-of-contents)
-
-## Props
-
-### value
-
-- Type: `String`
-- Default: `undefined`
-
-The value of the QR code.
-
-### options
-
-- Type: `Object`
-- Default: `undefined`
-
-The options for the QR code generator. References the [node-qrcode's options](https://github.com/soldair/node-qrcode#qr-code-options).
-
-### tag
-
-- Type: `String`
-- Default: `'canvas'`
-- Options: `'canvas'`, `'img'` and other element tags.
-
-The tag name of the component's root element.
 
 ## Browser support
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Opera (latest)
-- Edge (latest)
-- Internet Explorer 9+
+Same as Vue 3.
 
 ## Versioning
 
@@ -96,5 +59,3 @@ Maintained under the [Semantic Versioning guidelines](https://semver.org/).
 ## License
 
 [MIT](https://opensource.org/licenses/MIT) © [Chen Fengyuan](https://chenfengyuan.com/)
-
-[⬆ back to top](#table-of-contents)

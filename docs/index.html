@@ -1,95 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="QR code component for Vue.js.">
-  <meta name="author" content="Chen Fengyuan">
-  <title>vue-qrcode</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://unpkg.com/highlightjs@9.16.2/styles/github.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/main.css">
-</head>
-<body>
-  <header class="navbar navbar-light navbar-expand-md">
-    <div class="container">
-      <a class="navbar-brand" href="./">vue-qrcode</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbar-collapse" role="navigation">
-        <nav class="nav navbar-nav">
-          <a class="nav-link" href="https://github.com/fengyuanchen/vue-qrcode/blob/master/README.md" title="View the documentation">Docs</a>
-          <a class="nav-link" href="https://github.com/fengyuanchen/vue-qrcode" title="View the GitHub project">GitHub</a>
-          <a class="nav-link" href="https://fengyuanchen.github.io/" title="Explore more projects">Explore</a>
-          <a class="nav-link" href="https://github.com/fengyuanchen" title="About the team">About</a>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <div class="jumbotron rounded-0 bg-primary text-white">
-    <div class="container">
-        <div class="row">
-          <div class="col-md">
-            <h1>vue-qrcode <small class="h6">v1.0.2</small></h1>
-            <p class="lead">QR code component for Vue.js.</p>
-          </div>
-          <div class="col-md">
-            <div class="carbonads">
-              <script id="_carbonads_js" src="https://cdn.carbonads.com/carbon.js?serve=CKYI55Q7&placement=fengyuanchengithubio" async></script>
-            </div>
-          </div>
-        </div>
-      </div>
-  </div>
-
-  <div class="container">
-    <h3>Examples</h3>
-    <hr>
-    <div id="app">
-      <qrcode value="https://fengyuanchen.github.io/vue-qrcode"></qrcode>
-      <qrcode value="https://fengyuanchen.github.io/vue-qrcode" :options="{ color: { dark: '#007bff' } }"></qrcode>
-      <qrcode value="https://fengyuanchen.github.io/vue-qrcode" tag="img"></qrcode>
-    </div>
-    <br>
-
-    <h6>HTML:</h6>
-    <pre><code class="language-html">&lt;div id=&quot;app&quot;&gt;
-  &lt;qrcode value=&quot;https://fengyuanchen.github.io/vue-qrcode&quot;&gt;&lt;/qrcode&gt;
-  &lt;qrcode value=&quot;https://fengyuanchen.github.io/vue-qrcode&quot; :options=&quot;{ color: { dark: &#039;#0275d8&#039; } }&quot;&gt;&lt;/qrcode&gt;
-  &lt;qrcode value=&quot;https://fengyuanchen.github.io/vue-qrcode&quot; tag=&quot;img&quot;&gt;&lt;/qrcode&gt;
-&lt;/div&gt;</code></pre>
-
-    <h6>JavaScript:</h6>
-    <pre><code class="language-js">window.onload = function () {
-  Vue.component(VueQrcode.name, VueQrcode);
-
-  new Vue({
-    el: '#app',
-  });
-};</code></pre>
-  </div>
-
-  <footer class="footer">
-    <div class="container">
-      <p class="heart"></p>
-      <nav class="nav flex-wrap justify-content-center mb-3">
-        <a class="nav-link" href="https://github.com/fengyuanchen/vue-qrcode">GitHub</a>
-        <a class="nav-link" href="https://github.com/fengyuanchen/vue-qrcode/blob/master/LICENSE">License</a>
-        <a class="nav-link" href="https://chenfengyuan.com/">About</a>
-      </nav>
-    </div>
-  </footer>
-
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/vue@2.6.11/dist/vue.min.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/highlightjs@9.16.2/highlight.pack.js" crossorigin="anonymous"></script>
-  <script src="https://fengyuanchen.github.io/shared/google-analytics.js" crossorigin="anonymous"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <script src="js/vue-qrcode.js"></script>
-  <script src="js/main.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>vue-qrcode</title>
+    <meta name="description" content="Number input component for Vue.js.">
+    <meta name="author" content="Chen Fengyuan">
+    <link href="https://unpkg.com/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/github-markdown-css@4.0.0/github-markdown.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@10.4.1/styles/github.min.css" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="https://unpkg.com/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.4.1/highlight.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3.0.5/dist/vue.global.prod.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/qrcode@1.4.4/build/qrcode.min.js" crossorigin="anonymous"></script>
+    <script src="https://fengyuanchen.github.io/shared/google-analytics.js" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
 </html>
