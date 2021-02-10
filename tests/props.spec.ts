@@ -70,16 +70,16 @@ describe('props', () => {
       expect(wrapper.vm.$el.tagName.toLowerCase()).toBe('img');
     });
 
-    it('should be "div"', () => {
+    it('should be "svg"', () => {
       const wrapper = mount(VueQrcode, {
         props: {
           value: 'foo',
-          tag: 'div',
+          tag: 'svg',
         },
       });
 
-      expect(wrapper.props('tag')).toBe('div');
-      expect(wrapper.vm.$el.tagName.toLowerCase()).toBe('div');
+      expect(wrapper.props('tag')).toBe('svg');
+      expect(wrapper.vm.$el.tagName.toLowerCase()).toBe('svg');
     });
   });
 

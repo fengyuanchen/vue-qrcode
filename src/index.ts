@@ -67,6 +67,7 @@ export default defineComponent({
             }
           });
           break;
+
         case 'img':
           toDataURL(value, options, (error, url) => {
             if (error) {
@@ -77,14 +78,29 @@ export default defineComponent({
           });
           break;
 
-        default:
+        case 'svg':
           toString(value, options, (error, string) => {
             if (error) {
               throw error;
             }
 
-            this.$el.innerHTML = string;
+            const div = document.createElement('div');
+
+            div.innerHTML = string;
+
+            const svg = div.querySelector('svg');
+
+            if (svg) {
+              [...svg.attributes].forEach((item) => {
+                this.$el.setAttribute(item.name, item.value);
+              });
+
+              this.$el.innerHTML = svg.innerHTML;
+            }
           });
+          break;
+
+        default:
       }
     },
   },

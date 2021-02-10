@@ -25,7 +25,7 @@
 ```html
 <template>
   <vue-qrcode value="https://fengyuanchen.github.io/vue-qrcode" tag="img"></vue-qrcode>
-  <vue-qrcode value="https://fengyuanchen.github.io/vue-qrcode" tag="figure" style="display: inline-block; width: 148px;"></vue-qrcode>
+  <vue-qrcode value="https://fengyuanchen.github.io/vue-qrcode" tag="svg" :options="{ width: 148 }"></vue-qrcode>
 </template>
 ```
 
@@ -35,4 +35,4 @@
 | --- | --- | --- | --- | --- |
 | value | `string` | - | - | The value of the QR code. |
 | options | `Object` | - | [Checkout the available options](https://github.com/soldair/node-qrcode#qr-code-options) | The options for the QR code generator.
-| tag | `string` | `"canvas"` | canvas, img, figure | The tag of the QR code. |
+| tag | `string` | `"canvas"` | canvas, img, svg | The tag of the QR code. |
