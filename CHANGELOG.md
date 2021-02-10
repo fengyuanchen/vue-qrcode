@@ -1,7 +1,11 @@
+# [2.0.0-beta](https://github.com/fengyuanchen/vue-qrcode/compare/v2.0.0-alpha...v2.0.0-beta) (2021-02-10)
+
+
+
 # [2.0.0-alpha](https://github.com/fengyuanchen/vue-qrcode/compare/v1.0.2...v2.0.0-alpha) (2021-01-30)
 
 
-* refactor!: upgrade to Vue 3 ([aad345d](https://github.com/fengyuanchen/vue-qrcode/commit/aad345da48e168bacb3848b07d0ab3fe0c09528a))
+* refactor!: upgrade to Vue 3 ([14c1866](https://github.com/fengyuanchen/vue-qrcode/commit/14c1866d88117f1f895a6b90407f62d50d18a5d1))
 
 
 ### BREAKING CHANGES
