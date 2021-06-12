@@ -7,8 +7,6 @@ module.exports = {
   transform: {
     '^.+\\.js$': 'babel-jest',
   },
-  testEnvironmentOptions: {
-    resources: 'usable',
-  },
+  testEnvironment: 'jsdom',
   testMatch: ['**/tests/*.spec.ts'],
 };
