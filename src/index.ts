@@ -91,11 +91,19 @@ export default defineComponent({
             const svg = div.querySelector('svg');
 
             if (svg) {
-              [...svg.attributes].forEach((item) => {
-                this.$el.setAttribute(item.name, item.value);
+              const { attributes, childNodes } = svg;
+
+              Object.keys(attributes).forEach((key: string) => {
+                const attribute = attributes[Number(key)];
+
+                this.$el.setAttribute(attribute.name, attribute.value);
               });
 
-              this.$el.innerHTML = svg.innerHTML;
+              Object.keys(childNodes).forEach((key: string) => {
+                const childNode = childNodes[Number(key)];
+
+                this.$el.appendChild(childNode.cloneNode(true));
+              });
             }
           });
           break;
