@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/dist/plugin').default;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const markdownItAnchor = require('markdown-it-anchor');
 
 module.exports = (env) => ({
   mode: env.production ? 'production' : 'development',
@@ -45,6 +46,11 @@ module.exports = (env) => ({
               componentWrapper: '<demo-block></demo-block>',
               tableClass: 'table',
               tableWrapper: '<div class="table-responsive"></div>',
+              configureMarkdownIt(md) {
+                md.use(markdownItAnchor, {
+                  permalink: markdownItAnchor.permalink.headerLink(),
+                });
+              },
             },
           },
         ],
