@@ -143,6 +143,10 @@ export default defineComponent({
 
 <style lang="scss">
 .markdown-body {
+  :focus-visible {
+    outline: none;
+  }
+
   table {
     display: table;
   }
