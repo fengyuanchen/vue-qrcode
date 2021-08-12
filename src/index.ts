@@ -1,6 +1,8 @@
 import { defineComponent, h } from 'vue';
 import { toCanvas, toDataURL, toString } from 'qrcode';
 
+const EVENT_READY = 'ready';
+
 export default defineComponent({
   name: 'VueQrcode',
 
@@ -31,6 +33,8 @@ export default defineComponent({
     },
   },
 
+  emits: [EVENT_READY],
+
   watch: {
     $props: {
       deep: true,
@@ -58,6 +62,9 @@ export default defineComponent({
     generate() {
       const options = this.options || {};
       const value = String(this.value);
+      const done = () => {
+        this.$emit(EVENT_READY, this.$el);
+      };
 
       switch (this.tag) {
         case 'canvas':
@@ -65,6 +72,8 @@ export default defineComponent({
             if (error) {
               throw error;
             }
+
+            done();
           });
           break;
 
@@ -75,6 +84,7 @@ export default defineComponent({
             }
 
             this.$el.src = url;
+            this.$el.onload = done;
           });
           break;
 
@@ -98,12 +108,12 @@ export default defineComponent({
 
                 this.$el.setAttribute(attribute.name, attribute.value);
               });
-
               Object.keys(childNodes).forEach((key: string) => {
                 const childNode = childNodes[Number(key)];
 
                 this.$el.appendChild(childNode.cloneNode(true));
               });
+              done();
             }
           });
           break;
