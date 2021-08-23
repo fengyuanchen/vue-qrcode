@@ -1,3 +1,17 @@
+# [2.0.0-rc.1](https://github.com/fengyuanchen/vue-qrcode/compare/v2.0.0-rc...v2.0.0-rc.1) (2021-08-23)
+
+
+### Bug Fixes
+
+* improve the compatibility of svg elements ([102a388](https://github.com/fengyuanchen/vue-qrcode/commit/102a38859e4d6211905981faf13c3b915246fa3c))
+
+
+### Features
+
+* add `ready` event ([10ddebb](https://github.com/fengyuanchen/vue-qrcode/commit/10ddebba22b731348364ede873947ac3b4d33eaa))
+
+
+
 # [2.0.0-rc](https://github.com/fengyuanchen/vue-qrcode/compare/v2.0.0-beta...v2.0.0-rc) (2021-06-12)
 
 
