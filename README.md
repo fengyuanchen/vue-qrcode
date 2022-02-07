@@ -1,21 +1,26 @@
 # vue-qrcode
 
-[![Build Status](https://img.shields.io/travis/fengyuanchen/vue-qrcode.svg)](https://travis-ci.org/fengyuanchen/vue-qrcode) [![Coverage Status](https://img.shields.io/codecov/c/github/fengyuanchen/vue-qrcode.svg)](https://codecov.io/gh/fengyuanchen/vue-qrcode) [![Downloads](https://img.shields.io/npm/dm/@chenfengyuan/vue-qrcode.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-qrcode) [![Version](https://img.shields.io/npm/v/@chenfengyuan/vue-qrcode.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-qrcode) [![Dependencies](https://img.shields.io/david/fengyuanchen/vue-qrcode.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-qrcode)
-
-> QR code component for [Vue.js](https://vuejs.org/), bases on [node-qrcode](https://github.com/soldair/node-qrcode).
+> QR code component for [Vue 2](https://v2.vuejs.org/), bases on [node-qrcode](https://github.com/soldair/node-qrcode).
 
 - [Website](https://fengyuanchen.github.io/vue-qrcode)
 
 ## Table of contents
 
-- [Main](#main)
-- [Getting started](#getting-started)
-- [Props](#props)
-- [Browser support](#browser-support)
-- [Versioning](#versioning)
-- [License](#license)
+- [vue-qrcode](#vue-qrcode)
+  - [Table of contents](#table-of-contents)
+  - [Main files](#main-files)
+  - [Getting started](#getting-started)
+    - [Install](#install)
+    - [Usage](#usage)
+  - [Props](#props)
+    - [value](#value)
+    - [options](#options)
+    - [tag](#tag)
+  - [Browser support](#browser-support)
+  - [Versioning](#versioning)
+  - [License](#license)
 
-## Main
+## Main files
 
 ```text
 dist/
@@ -30,7 +35,7 @@ dist/
 ### Install
 
 ```shell
-npm install @chenfengyuan/vue-qrcode vue
+npm install vue@2 @chenfengyuan/vue-qrcode@1
 ```
 
 In browser:
