@@ -149,7 +149,7 @@ export default defineComponent({
 
   table {
     display: table;
-    width: 100%;
+    min-width: 100%;
   }
 
   code {
