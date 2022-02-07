@@ -6,5 +6,9 @@
     "strict": true,
     "target": "esnext",
   },
-  "include": ["docs", "src", "types"]
+  "include": [
+    "src/**/*",
+    "docs/**/*",
+    "tests/**/*"
+  ]
 }
