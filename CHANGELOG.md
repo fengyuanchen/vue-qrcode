@@ -1,3 +1,7 @@
+# [2.0.0](https://github.com/fengyuanchen/vue-qrcode/compare/v2.0.0-rc.1...v2.0.0) (2022-02-07)
+
+
+
 # [2.0.0-rc.1](https://github.com/fengyuanchen/vue-qrcode/compare/v2.0.0-rc...v2.0.0-rc.1) (2021-08-23)
 
 

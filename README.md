@@ -1,8 +1,8 @@
 # vue-qrcode
 
-[![Coverage Status](https://img.shields.io/codecov/c/github/fengyuanchen/vue-qrcode.svg)](https://codecov.io/gh/fengyuanchen/vue-qrcode) [![Downloads](https://img.shields.io/npm/dm/@chenfengyuan/vue-qrcode.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-qrcode) [![Version](https://img.shields.io/npm/v/@chenfengyuan/vue-qrcode/next.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-qrcode) [![Gzip Size](https://img.shields.io/bundlephobia/minzip/@chenfengyuan/vue-qrcode.svg)](https://unpkg.com/@chenfengyuan/vue-qrcode/dist/vue-qrcode.js)
+[![Coverage Status](https://img.shields.io/codecov/c/github/fengyuanchen/vue-qrcode.svg)](https://codecov.io/gh/fengyuanchen/vue-qrcode) [![Downloads](https://img.shields.io/npm/dm/@chenfengyuan/vue-qrcode.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-qrcode) [![Version](https://img.shields.io/npm/v/@chenfengyuan/vue-qrcode.svg)](https://www.npmjs.com/package/@chenfengyuan/vue-qrcode) [![Gzip Size](https://img.shields.io/bundlephobia/minzip/@chenfengyuan/vue-qrcode.svg)](https://unpkg.com/@chenfengyuan/vue-qrcode/dist/vue-qrcode.js)
 
-> QR code component for Vue 3, bases on [node-qrcode](https://github.com/soldair/node-qrcode).
+> QR code component for Vue 3, bases on [node-qrcode](https://github.com/soldair/node-qrcode). For Vue 2, check out the [`v1`](https://github.com/fengyuanchen/vue-qrcode/tree/v1) branch.
 
 - [Docs](src/README.md)
 - [Demo](https://fengyuanchen.github.io/vue-qrcode)
@@ -14,23 +14,38 @@ dist/
 ├── vue-qrcode.js         (UMD, default)
 ├── vue-qrcode.min.js     (UMD, compressed)
 ├── vue-qrcode.esm.js     (ECMAScript Module)
-└── vue-qrcode.esm.min.js (ECMAScript Module, compressed)
+├── vue-qrcode.esm.min.js (ECMAScript Module, compressed)
+└── vue-qrcode.d.ts       (TypeScript Declaration File)
 ```
 
 ## Getting started
 
 ### Installation
 
+Using npm:
+
 ```shell
-npm install vue@next qrcode @chenfengyuan/vue-qrcode@next
+npm install vue@3 qrcode@1 @chenfengyuan/vue-qrcode@2
 ```
 
-In browser:
+Using pnpm:
+
+```shell
+pnpm add vue@3 qrcode@1 @chenfengyuan/vue-qrcode@2
+```
+
+Using Yarn:
+
+```shell
+yarn add vue@3 qrcode@1 @chenfengyuan/vue-qrcode@2
+```
+
+Using CDN:
 
 ```html
-<script src="/path/to/vue.js"></script><!-- Vue.js is required -->
-<script src="/path/to/qrcode.js"></script><!-- qrocde is required -->
-<script src="/path/to/vue-qrcode.js"></script>
+<script src="https://unpkg.com/vue@3"></script><!-- Vue.js is required -->
+<script src="https://unpkg.com/qrcode@1.5.0/build/qrcode.js"></script><!-- qrocde is required -->
+<script src="https://unpkg.com/@chenfengyuan/vue-qrcode@2"></script>
 ```
 
 ### Usage
